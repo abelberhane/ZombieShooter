@@ -1,0 +1,9 @@
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\bin\Debug\Apocalypto.exe.config
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\bin\Debug\Apocalypto.exe
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\bin\Debug\Apocalypto.pdb
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\obj\Debug\Apocalypto.csprojResolveAssemblyReference.cache
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\obj\Debug\Apocalypto.Form1.resources
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\obj\Debug\Apocalypto.Properties.Resources.resources
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\obj\Debug\Apocalypto.csproj.GenerateResource.Cache
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\obj\Debug\Apocalypto.exe
+c:\users\aberhane\documents\visual studio 2017\Projects\Apocalypto\Apocalypto\obj\Debug\Apocalypto.pdb
