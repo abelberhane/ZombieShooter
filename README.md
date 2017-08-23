@@ -13,7 +13,7 @@ I cannot wait to try. I would like to implement a Restart button so I can play m
 around the bugs I encountered when I changed the backgrounds to a Street Image or some other background. I have included those images in the image
 folder for future use.
 
-Many thanks to the awesome Assets and Project Idea: http://www.mooict.com/c-tutorial-create-a-zombie-survival-shooting-game-in-visual-studio/
+Many thanks to the awesome group at MooICT. Assets and Project Idea originally from their website: http://www.mooict.com/c-tutorial-create-a-zombie-survival-shooting-game-in-visual-studio/
 
 ![alt text](https://github.com/abelberhane/ZombieShooter/blob/master/Images/SH.png?raw=true)
 ![alt text](https://github.com/abelberhane/ZombieShooter/blob/master/Images/DeadSH.png?raw=true)
