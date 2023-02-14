@@ -26,6 +26,7 @@ namespace Apocalypto
         bool gameOver = false; // The game is not over in the beginning. Things can change this boolean and end the game.
         Random rnd = new Random(); // An Instance of the Random class
 
+        // Starting the game
         public Form1()
         {
             InitializeComponent();
