@@ -17,6 +17,7 @@ namespace Apocalypto
         bool goDown; // Variable for making the Player go Down
         bool goLeft; // Variable for making the Player go Left
         bool goRight; // Variable for making the Player go Right
+        bool neutral; // Variable for the rest state. This will change with power-ups down the road.
         string facing = "up"; // Used to guide the bullets
         double playerHealth = 100; // Player's Health in the game
         int speed = 10; // Speed of the Player
