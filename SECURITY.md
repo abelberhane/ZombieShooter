@@ -11,4 +11,4 @@ All versions of this project are currently being supported.
 
 ## Reporting a Vulnerability
 
-If you see any problems, please open an Issue in this repository and let me know! Thank you!
+If you see any problems, please open an Issue in this repository and let me know! Thank you! Stay vigilant! 
