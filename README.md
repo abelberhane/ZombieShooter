@@ -5,7 +5,7 @@
 
 Game developed in C# and Visual Studio for a Zombie Shooter. While the Project I was reviewing let me know that this was an advanced project,
 I felt as though the elements used in this game were very similar. I was required to utilize OOP (Object Oriented Programming) and 
-had some interesting interactions with the bullet class. 
+had some interesting interactions with the bullet class. Nominal Change.
 
 Working with a Progress Bar to show a Players health was new to me but the implementation was rather simple. I was able to change the Image 
 shown depending on the Direction I needed to face. I was able to also learn how to dynamically populate Enemies and ammunition throughout
