@@ -7,9 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Apocalypto
 {
+    public class LeaderboardEntry
+    {
+        public string Name { get; set; }
+        public int Score { get; set; }
+    }
+
+    public static class Leaderboard
+    {
+        private const string FilePath = "leaderboard.json";
+
+        public static List<LeaderboardEntry> GetLeaderboard()
+        {
+            if (!File.Exists(FilePath))
+            {
+                return new List<LeaderboardEntry>();
+            }
+
+            string json = File.ReadAllText(FilePath);
+            return JsonConvert.DeserializeObject<List<LeaderboardEntry>>(json);
+        }
+
+        public static void AddScoreToLeaderboard(string name, int score)
+        {
+            List<LeaderboardEntry> leaderboard = GetLeaderboard();
+            leaderboard.Add(new LeaderboardEntry { Name = name, Score = score });
+            leaderboard.Sort((x, y) => y.Score.CompareTo(x.Score)); // Sort by score descending
+
+            File.WriteAllText(FilePath, JsonConvert.SerializeObject(leaderboard));
+        }
+    }
+
     public partial class Form1 : Form
     {
         // Global Variables
@@ -127,6 +160,10 @@ namespace Apocalypto
                 player.Image = Properties.Resources.dead;
                 timer1.Stop();
                 gameOver = true;
+
+                // Add player's score to the leaderboard
+                string playerName = "CurrentPlayer"; // Replace with actual player name if available
+                Leaderboard.AddScoreToLeaderboard(playerName, score);
             }
 
             // Labels for the Ammo and Kill Score
