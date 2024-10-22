@@ -10,4 +10,4 @@ jobs:
       - name: Assign users
         uses: actions/add-to-project@v0.1.0
         with:
-          assignees: 'user1,user2'  # Replace with the GitHub usernames of the users to assign
+          assignees: 'abelberhane'  # Replace with the GitHub usernames of the users to assign
