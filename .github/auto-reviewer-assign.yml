@@ -1,0 +1,5 @@
+reviewers:
+  - name: abelberhane # Always assign this user
+ignore:
+  titles: # Ignore PR if PR's title contains these words
+    - wip
