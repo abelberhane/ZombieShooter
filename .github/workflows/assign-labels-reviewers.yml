@@ -1,18 +1,19 @@
-name: Add Label
-
+name: 'Assign Users on PR Open'
 on:
-  issues:
-    types: opened
+  pull_request:
+    types: [opened]
 
 jobs:
-  add_label:
+  assign_users:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: add label
-        uses: actions-ecosystem/action-add-labels@v1
-        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
+      - name: Assign users
+        uses: actions/github-script@v6
         with:
-          labels: bug
+          script: |
+            github.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              assignees: ['abelberhane']  # Replace with the GitHub usernames of the users to assign
+            })
