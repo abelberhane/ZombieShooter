@@ -1,5 +1,13 @@
 reviewers:
-  - name: 'abelberhane' # Always assign this user
+  - name: abelberhane # Always assign this user
+  - name: path_user_name # Assign this user if the path matches
+    paths:
+      - path/to/file
+      - path/**
+  - name: team_name # Assign this team
+    team: true
 ignore:
+  authors: # Ignore PR if these authors contain PR's author
+    - author_name
   titles: # Ignore PR if PR's title contains these words
     - wip
