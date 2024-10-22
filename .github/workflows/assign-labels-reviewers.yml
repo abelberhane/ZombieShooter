@@ -1,27 +1,18 @@
-name: Assign Labels and Reviewers
+name: Add Label
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  issues:
+    types: opened
 
 jobs:
-  label_and_review:
+  add_label:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
 
-    - name: add label
+      - name: add label
         uses: actions-ecosystem/action-add-labels@v1
         if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
         with:
           labels: bug
-
-    - name: Assign Reviewers
-      uses: kentaro-m/auto-assign-action@v2.2.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reviewers: |
-          abelberhane
-          reviewer2
