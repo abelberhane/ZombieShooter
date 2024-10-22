@@ -1,6 +1,6 @@
-name: 'Assign Users on PR Open'
+name: 'Assign Users on Issue Open'
 on:
-  pull_request:
+  issues:
     types: [opened]
 
 jobs:
@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign users
-        uses: actions/assign-issue@v1
+        uses: actions/add-to-project@v0.1.0
         with:
-          assignees: 'abelberhane'  # Replace with the GitHub usernames of the users to assign
+          assignees: 'user1,user2'  # Replace with the GitHub usernames of the users to assign
