@@ -1,5 +1,6 @@
 reviewers:
   - name: abelberhane # Always assign this user
+    team: false
   - name: path_user_name # Assign this user if the path matches
     paths:
       - path/to/file
