@@ -12,13 +12,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Assign Labels
-      uses: actions/add-labels@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: |
-          enhancement
-          bug
+    - name: add label
+        uses: actions-ecosystem/action-add-labels@v1
+        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
+        with:
+          labels: bug
 
     - name: Assign Reviewers
       uses: kentaro-m/auto-assign-action@v2.2.0
