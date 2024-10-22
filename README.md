@@ -1,7 +1,7 @@
 ![alt text](https://github.com/abelberhane/ZombieShooter/blob/master/Images/SH.png?raw=true)
 ![alt text](https://github.com/abelberhane/ZombieShooter/blob/master/Images/DeadSH.png?raw=true)
 
-# Zombie Shooter
+# Zombie Shooter - nominal
 
 Game developed in C# and Visual Studio for a Zombie Shooter. While the Project I was reviewing let me know that this was an advanced project,
 I felt as though the elements used in this game were very similar. I was required to utilize OOP (Object Oriented Programming) and 
