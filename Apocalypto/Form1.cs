@@ -38,36 +38,34 @@ namespace Apocalypto
             // If the Game's over, do nothing in here and return
             if (gameOver) return;
 
-            // If the Left key is pressed, move the Player left, mark it as left and use the left Image from Resources
-            if (e.KeyCode == Keys.Left)
-            {
-                goLeft = true;
-                facing = "left";
-                player.Image = Properties.Resources.left;
-            }
+            // Handle directional key presses
+            HandleDirectionalKeyPress(e.KeyCode);
+        }
 
-            // If the Right key is pressed, move the Player right, mark it as right and use the right Image from Resources
-            if (e.KeyCode == Keys.Right)
+        private void HandleDirectionalKeyPress(Keys key)
+        {
+            switch (key)
             {
-                goRight = true;
-                facing = "right";
-                player.Image = Properties.Resources.right;
-            }
-
-            // If the Up key is pressed, move the Player Up, mark it as Up and use the Up Image from Resources
-            if (e.KeyCode == Keys.Up)
-            {
-                goUp = true;
-                facing = "up";
-                player.Image = Properties.Resources.up;
-            }
-
-            // If the Down key is pressed, move the Player Down, mark it as Down and use the Down Image from Resources
-            if (e.KeyCode == Keys.Down)
-            {
-                goDown = true;
-                facing = "down";
-                player.Image = Properties.Resources.down;
+                case Keys.Left:
+                    goLeft = true;
+                    facing = "left";
+                    player.Image = Properties.Resources.left;
+                    break;
+                case Keys.Right:
+                    goRight = true;
+                    facing = "right";
+                    player.Image = Properties.Resources.right;
+                    break;
+                case Keys.Up:
+                    goUp = true;
+                    facing = "up";
+                    player.Image = Properties.Resources.up;
+                    break;
+                case Keys.Down:
+                    goDown = true;
+                    facing = "down";
+                    player.Image = Properties.Resources.down;
+                    break;
             }
         }
 
@@ -76,29 +74,8 @@ namespace Apocalypto
             // If the Game's over, do nothing in here and return
             if (gameOver) return;
 
-            // Logic for what occurs once the Left Key has been lifted. Stop moving Left.
-            if (e.KeyCode == Keys.Left)
-            {
-                goLeft = false;
-            }
-
-            // Logic for what occurs once the Right Key has been lifted. Stop moving Right.
-            if (e.KeyCode == Keys.Right)
-            {
-                goRight = false;
-            }
-
-            // Logic for what occurs once the Up Key has been lifted. Stop moving Up.
-            if (e.KeyCode == Keys.Up)
-            {
-                goUp = false;
-            }
-
-            // Logic for what occurs once the Down Key has been lifted. Stop moving Down.
-            if (e.KeyCode == Keys.Down)
-            {
-                goDown = false;
-            }
+            // Handle directional key releases
+            HandleDirectionalKeyRelease(e.KeyCode);
 
             // If the ammo is more than 0 and the Space Bar is lifted, remove 1 from Ammo and shoot in the direction facing.
             if (e.KeyCode == Keys.Space && ammo > 0)
@@ -111,6 +88,25 @@ namespace Apocalypto
                 {
                     DropAmmo();
                 }
+            }
+        }
+
+        private void HandleDirectionalKeyRelease(Keys key)
+        {
+            switch (key)
+            {
+                case Keys.Left:
+                    goLeft = false;
+                    break;
+                case Keys.Right:
+                    goRight = false;
+                    break;
+                case Keys.Up:
+                    goUp = false;
+                    break;
+                case Keys.Down:
+                    goDown = false;
+                    break;
             }
         }
 
@@ -197,33 +193,8 @@ namespace Apocalypto
                         playerHealth -= 1;
                     }
 
-                    // Moves the Zombies to the Left of the Player & Changes the Image to the Left Zombie
-                    if (((PictureBox)x).Left > player.Left)
-                    {
-                        ((PictureBox)x).Left -= zombieSpeed;
-                        ((PictureBox)x).Image = Properties.Resources.zleft;
-                    }
-
-                    // Moves the Zombies to the Right of the Player & Changes the Image to the Right Zombie
-                    if (((PictureBox)x).Left < player.Left)
-                    {
-                        ((PictureBox)x).Left += zombieSpeed;
-                        ((PictureBox)x).Image = Properties.Resources.zright;
-                    }
-
-                    // Moves the Zombies Up to the Player & Changes the Image to the Up Zombie
-                    if (((PictureBox)x).Top > player.Top)
-                    {
-                        ((PictureBox)x).Top -= zombieSpeed;
-                        ((PictureBox)x).Image = Properties.Resources.zup;
-                    }
-
-                    // Moves the Zombies Down to the Player & Changes the Image to the Down Zombie
-                    if (((PictureBox)x).Top < player.Top)
-                    {
-                        ((PictureBox)x).Top += zombieSpeed;
-                        ((PictureBox)x).Image = Properties.Resources.zdown;
-                    }
+                    // Move zombies toward player and update their image based on direction
+                    MoveZombieTowardPlayer((PictureBox)x);
                 }
 
                 // Logic to determine Bullet and Zombie Interaction
@@ -283,6 +254,37 @@ namespace Apocalypto
             zombie.SizeMode = PictureBoxSizeMode.AutoSize;
             this.Controls.Add(zombie);
             player.BringToFront();
+        }
+
+        private void MoveZombieTowardPlayer(PictureBox zombie)
+        {
+            // Moves the Zombies to the Left of the Player & Changes the Image to the Left Zombie
+            if (zombie.Left > player.Left)
+            {
+                zombie.Left -= zombieSpeed;
+                zombie.Image = Properties.Resources.zleft;
+            }
+
+            // Moves the Zombies to the Right of the Player & Changes the Image to the Right Zombie
+            if (zombie.Left < player.Left)
+            {
+                zombie.Left += zombieSpeed;
+                zombie.Image = Properties.Resources.zright;
+            }
+
+            // Moves the Zombies Up to the Player & Changes the Image to the Up Zombie
+            if (zombie.Top > player.Top)
+            {
+                zombie.Top -= zombieSpeed;
+                zombie.Image = Properties.Resources.zup;
+            }
+
+            // Moves the Zombies Down to the Player & Changes the Image to the Down Zombie
+            if (zombie.Top < player.Top)
+            {
+                zombie.Top += zombieSpeed;
+                zombie.Image = Properties.Resources.zdown;
+            }
         }
     }
 }
