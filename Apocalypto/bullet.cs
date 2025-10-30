@@ -69,6 +69,9 @@ namespace Apocalypto
                 case "down":
                     Bullet.Top += speed;
                     break;
+                default:
+                    // Direction should always be one of the four valid values
+                    break;
             }
         }
     }

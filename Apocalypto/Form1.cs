@@ -66,6 +66,9 @@ namespace Apocalypto
                     facing = "down";
                     player.Image = Properties.Resources.down;
                     break;
+                default:
+                    // Ignore other keys
+                    break;
             }
         }
 
@@ -106,6 +109,9 @@ namespace Apocalypto
                     break;
                 case Keys.Down:
                     goDown = false;
+                    break;
+                default:
+                    // Ignore other keys
                     break;
             }
         }
