@@ -39,29 +39,8 @@ namespace Apocalypto
 
         public void tm_Tick(object sender, EventArgs e)
         {
-            // If the Direction the Player is facing is left, fire the bullet left
-            if (direction == "left")
-            {
-                Bullet.Left -= speed;
-            }
-
-            // If the Direction the Player is facing is right, fire the bullet right
-            if (direction == "right")
-            {
-                Bullet.Left += speed;
-            }
-
-            // If the Direction the Player is facing is Up, fire the bullet Up
-            if (direction == "up")
-            {
-                Bullet.Top -= speed;
-            }
-
-            // If the Direction the Player is facing is Down, fire the bullet Down
-            if (direction == "down")
-            {
-                Bullet.Top += speed;
-            }
+            // Move bullet based on direction
+            MoveBullet();
 
             // If the Bullet hits the borders, stop the bullet timer, dispose of all properties of the Bullet and set it to null
             if (Bullet.Left < 16 || Bullet.Left > 860 || Bullet.Top < 10 || Bullet.Top > 616)
@@ -71,6 +50,28 @@ namespace Apocalypto
                 Bullet.Dispose();
                 tm = null;
                 Bullet = null;
+            }
+        }
+
+        private void MoveBullet()
+        {
+            switch (direction)
+            {
+                case "left":
+                    Bullet.Left -= speed;
+                    break;
+                case "right":
+                    Bullet.Left += speed;
+                    break;
+                case "up":
+                    Bullet.Top -= speed;
+                    break;
+                case "down":
+                    Bullet.Top += speed;
+                    break;
+                default:
+                    // Direction should always be one of the four valid values
+                    break;
             }
         }
     }
